@@ -1,11 +1,9 @@
 <script setup>
-import ChatboxVue from './components/Chatbox.vue';
-import Countdown from './components/Countdown.vue';
+import PresVue from './views/Pres.vue';
 </script>
 
 <template>
-  <Countdown />
-  <ChatboxVue />
+  <PresVue />
 </template>
 
 <style scoped>
