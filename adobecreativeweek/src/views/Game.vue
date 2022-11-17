@@ -21,12 +21,17 @@ export default{
     components: { Enigme3D, Countdown, Chatbox, Dev},
     data: function() {
         return {
-            enigma_count: 0
+            enigma_count: 0,
+            nbr_of_enigma: 3,
         }
     },
     methods: {
         next_enigma() {
-            return this.enigma_count++
+            this.enigma_count++
+            if (this.enigma_count === this.nbr_of_enigma) {
+                this.enigma_count = 0;
+            }
+            return this.enigma_count
         }
     }
 }
