@@ -1,11 +1,12 @@
 <template>
     <div class="container">
         <Countdown />
-        <Chatbox />
-        <Dev v-if="this.enigma_count === 1"/>
-        <Enigme3D v-if="this.enigma_count === 2"/>
-        <!-- <Unity v-if="this.enigma_count === 3"/> -->
-        <button @click="next_enigma()">Épreuve suivante</button>
+        <Chatbox @changeResult="changeResult" :currentEnigma="this.enigma_count"/>
+        <Enigme3D v-if="this.enigma_count === 1"/>
+        <Dev v-if="this.enigma_count === 2"/>
+        <Unity v-if="this.enigma_count === 3"/>
+        <button v-if="this.enigma_count == 0" @click="start_enigma()">Commencer le jeu</button>
+        <button v-if="this.result == true"  @click="next_enigma()">Épreuve suivante</button>
     </div>
 </template>
 
@@ -14,15 +15,16 @@ import Chatbox from "../components/Chatbox.vue";
 import Dev from "../components/Dev.vue";
 import Countdown from "../components/Countdown.vue";
 import Enigme3D from "../components/Enigme3D.vue";
-// import Unity from "../components/Unity.vue";
+import Unity from "../components/Unity.vue";
 
 export default{
     name: 'game',
-    components: { Enigme3D, Countdown, Chatbox, Dev},
+    components: { Enigme3D, Countdown, Chatbox, Dev, Unity},
     data: function() {
         return {
             enigma_count: 0,
             nbr_of_enigma: 3,
+            result: false,
         }
     },
     methods: {
@@ -31,7 +33,14 @@ export default{
             if (this.enigma_count === this.nbr_of_enigma) {
                 this.enigma_count = 0;
             }
+            this.result = false
             return this.enigma_count
+        },
+        start_enigma() {
+            return this.enigma_count++
+        },
+        changeResult(chatboxResult) {
+            return this.result = chatboxResult
         }
     }
 }

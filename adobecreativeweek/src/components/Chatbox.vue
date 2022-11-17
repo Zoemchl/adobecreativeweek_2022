@@ -5,9 +5,11 @@
             <p id="message1" class="chat active">> Salut !</p>
             <p id="message2" class="chat">> Test !</p>
             <p id="message3" class="chat">> 25456 !</p>
+            <input placeholder="Le code doit contenir 8 chiffres" id="answer" type="number">
+            <button @click="check_answer()">Vérifier votre réponse</button>
             <img class="happy_iimersive" src="../assets/img/happy_iimersive.png" alt="IIMersive happy face icon">
             <h3>IIMersive</h3>
-            <button @click="activechat()">Suivant</button>
+            <button class="next_chat" @click="activechat()">Suivant</button>
         </div>
     </div>
 
@@ -17,9 +19,17 @@
 <script>
 export default {
     name:"Chatbox",
+    props: {
+        currentEnigma: Number,
+        resetBtn: Boolean
+    },
     data: function() {
         return {
-            i: 1
+            i: 1,
+            check_result: true,
+            dev_answer: 28796550,
+            troisD_answer: 11111111,
+            check_value: 12345678,
         }
     },
     methods : {
@@ -29,6 +39,25 @@ export default {
             var selected_message = document.getElementById('message' + this.i);
             selected_message.classList.add("active");
             return this.i
+        },
+        check_answer() {
+            this.check_result = false
+            if (this.currentEnigma === 1) {
+                this.check_value = this.troisD_answer
+            } else if (this.currentEnigma === 2) {
+                this.check_value = this.dev_answer
+            }
+            if (document.getElementById('answer').value == this.check_value) {
+                this.check_result = true
+                this.$emit('changeResult', this.check_result)
+                document.getElementById('answer').value = ""
+                return this.check_result
+            } else {
+                this.check_result = false
+                this.$emit('changeResult', this.check_result)
+                document.getElementById('answer').value = ""
+                return this.check_result
+            }
         }
     }
 }
@@ -68,7 +97,7 @@ export default {
         right: 15%;
     }
 
-    button{
+    .next_chat{
         position: absolute;
         bottom: -15%;
         background-color: #F07D00;
