@@ -30,23 +30,6 @@ export default {
             selected_message.classList.add("active");
             return this.i
         }
-        // activechat(i) {
-        //     const active = document.querySelector('.active');
-        //     const chats = document.querySelectorAll('.chat');
-
-        //         for (let chat of chats) {
-        //             chat.classList.remove('active');
-        //         }
-        //         if (i < chats.length) {
-        //                 chats[i].classList.add('active');
-        //                 i++;
-        //             }
-
-        //         if (i === chats.length) {
-        //             i = 0;
-        //         }
-        // }
-        
     }
 }
 </script>

@@ -1,10 +1,11 @@
 <template>
     <div class="container">
-        <Chatbox />
-        <Dev />
         <Countdown />
-        <Enigme3D />
+        <Chatbox />
+        <Dev v-if="this.enigma_count === 1"/>
+        <Enigme3D v-if="this.enigma_count === 2"/>
         <!-- <Unity /> -->
+        <button @click="next_enigma()">Épreuve suivante</button>
     </div>
 </template>
 
@@ -18,6 +19,16 @@ import Enigme3D from "../components/Enigme3D.vue";
 export default{
     name: 'game',
     components: { Enigme3D, Countdown, Chatbox, Dev},
+    data: function() {
+        return {
+            enigma_count: 0
+        }
+    },
+    methods: {
+        next_enigma() {
+            return this.enigma_count++
+        }
+    }
 }
 </script>
 
