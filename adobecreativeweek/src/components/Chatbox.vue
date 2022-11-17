@@ -7,7 +7,7 @@
             <p id="message3" class="chat">> 25456 !</p>
             <img class="happy_iimersive" src="../assets/img/happy_iimersive.png" alt="IIMersive happy face icon">
             <h3>IIMersive</h3>
-            <button @click="activechat(i)">Suivant</button>
+            <button @click="activechat()">Suivant</button>
         </div>
     </div>
 
@@ -23,16 +23,30 @@ export default {
         }
     },
     methods : {
-        activechat(i) {
-            console.log(i)
-            i++
-            console.log(i)
-            document.getElementById('message' + (i - 1)).classList.remove("active")
-            var selected_message = document.getElementById('message' + i);
+        activechat() {
+            this.i++
+            document.getElementById('message' + (this.i - 1)).classList.remove("active")
+            var selected_message = document.getElementById('message' + this.i);
             selected_message.classList.add("active");
-            console.log(i)
-            return i
+            return this.i
         }
+        // activechat(i) {
+        //     const active = document.querySelector('.active');
+        //     const chats = document.querySelectorAll('.chat');
+
+        //         for (let chat of chats) {
+        //             chat.classList.remove('active');
+        //         }
+        //         if (i < chats.length) {
+        //                 chats[i].classList.add('active');
+        //                 i++;
+        //             }
+
+        //         if (i === chats.length) {
+        //             i = 0;
+        //         }
+        // }
+        
     }
 }
 </script>
