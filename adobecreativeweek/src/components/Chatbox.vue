@@ -2,10 +2,12 @@
 
     <div class="chatbox">
         <div class="container">
-            <p>> Salut !</p>
+            <p id="message1" class="chat active">> Salut !</p>
+            <p id="message2" class="chat">> Test !</p>
+            <p id="message3" class="chat">> 25456 !</p>
             <img class="happy_iimersive" src="../assets/img/happy_iimersive.png" alt="IIMersive happy face icon">
             <h3>IIMersive</h3>
-            <button>Suivant</button>
+            <button @click="activechat(i)">Suivant</button>
         </div>
     </div>
 
@@ -14,13 +16,36 @@
 
 <script>
 export default {
-    name:"Chatbox"
+    name:"Chatbox",
+    data: function() {
+        return {
+            i: 1
+        }
+    },
+    methods : {
+        activechat(i) {
+            console.log(i)
+            i++
+            console.log(i)
+            document.getElementById('message' + (i - 1)).classList.remove("active")
+            var selected_message = document.getElementById('message' + i);
+            selected_message.classList.add("active");
+            console.log(i)
+            return i
+        }
+    }
 }
 </script>
 
 
 <style scoped>
+.chat {
+    display: none;
+}
 
+.active  {
+    display: flex;
+}
     .chatbox{
         position: fixed;
         right: 6%;
