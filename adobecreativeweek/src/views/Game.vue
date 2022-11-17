@@ -22,5 +22,9 @@ export default{
 </script>
 
 <style scoped>
-
+.container {
+    min-height: 100vh;
+    background-image: url(../assets/img/background1.png);
+    background-attachment: fixed;
+}
 </style>
