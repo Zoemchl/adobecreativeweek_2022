@@ -4,7 +4,7 @@
         <Chatbox />
         <Dev v-if="this.enigma_count === 1"/>
         <Enigme3D v-if="this.enigma_count === 2"/>
-        <!-- <Unity /> -->
+        <!-- <Unity v-if="this.enigma_count === 3"/> -->
         <button @click="next_enigma()">Épreuve suivante</button>
     </div>
 </template>
@@ -42,5 +42,8 @@ export default{
     min-height: 100vh;
     background-image: url(../assets/img/background1.png);
     background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 </style>
