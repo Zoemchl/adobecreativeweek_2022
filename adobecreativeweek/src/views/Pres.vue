@@ -2,7 +2,7 @@
     <div class="background">
         <div class="introduction">   
             <h1>IIMERSIVE</h1>
-            <model-viewer class="model" src="src/FULLBODY/fullbody.gltf" ></model-viewer>
+            <model-viewer src="src/assets/FULLBODY/fullbody.gltf" camera-controls  camera-orbit="25deg 85deg"></model-viewer>
         </div>
     </div>
 </template>
