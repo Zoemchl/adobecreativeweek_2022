@@ -35,4 +35,22 @@ export default{
         color: white;
     }
 
+    model-viewer {
+        width: 65%;
+        height: 65%;
+        position: fixed;
+        bottom: 100px;
+        margin: auto;
+        animation: MoveUpDown 2s linear infinite;
+    }
+
+    @keyframes MoveUpDown {
+        0%, 100% {
+            bottom: 100px;
+        }
+        50% {
+            bottom: 125px;
+        }
+    }
+
 </style>
