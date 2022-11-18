@@ -28,8 +28,9 @@ export default {
             i: 1,
             check_result: true,
             dev_answer: 28796550,
-            troisD_answer: 11111111,
-            check_value: 12345678,
+            troisD_answer: 42781214,
+            unity_answer: 12345678,
+            check_value: 0,
         }
     },
     methods : {
@@ -46,6 +47,8 @@ export default {
                 this.check_value = this.troisD_answer
             } else if (this.currentEnigma === 2) {
                 this.check_value = this.dev_answer
+            } else if (this.currentEnigma === 3) {
+                this.check_value = this.unity_answer
             }
             if (document.getElementById('answer').value == this.check_value) {
                 this.check_result = true

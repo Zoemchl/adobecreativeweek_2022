@@ -23,7 +23,7 @@ export default{
     data: function() {
         return {
             enigma_count: 0,
-            nbr_of_enigma: 3,
+            nbr_of_enigma: 4,
             result: false,
         }
     },
